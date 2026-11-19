@@ -127,7 +127,7 @@ test('upload, local AI, projects, effects, compilations, and export workflow', {
     const music = await upload(speech, 'Licensed test audio.wav');
     const compilation = await wait(await api('/api/export', { title: 'Verified compilation', preset: 'cinematic', ratio: '1:1', resolution: 360, fps: 30,
       transition: 'fade', musicId: music.id, musicVolume: .1, overlay: 'Verified title', speed: .75,
-      clips: [{ id: randomUUID(), type: 'title', text: 'ClipForge Test', duration: 1.5 }, { id: randomUUID(), sourceId: source.id, start: 0, end: 2 }, { id: randomUUID(), sourceId: source.id, start: 3, end: 5 }] }, 202));
+      clips: [{ id: randomUUID(), type: 'title', text: 'Noah Test', duration: 1.5 }, { id: randomUUID(), sourceId: source.id, start: 0, end: 2 }, { id: randomUUID(), sourceId: source.id, start: 3, end: 5 }] }, 202));
     const compilationInfo = probe(compilation);
     assert.equal(compilationInfo.streams[0].width, 360);
     assert.equal(compilationInfo.streams[0].height, 360);

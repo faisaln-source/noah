@@ -1,7 +1,7 @@
 param([switch]$AppWindow)
 $ErrorActionPreference = 'Stop'
 Set-Location -LiteralPath $PSScriptRoot
-if (-not (Get-Command node -ErrorAction SilentlyContinue)) { throw 'Install Node.js 22 or newer, then open Start ClipForge.cmd again.' }
+if (-not (Get-Command node -ErrorAction SilentlyContinue)) { throw 'Install Node.js 22 or newer, then open Start Noah.cmd again.' }
 if (-not (Test-Path -LiteralPath 'node_modules')) {
   & npm.cmd ci
   if ($LASTEXITCODE -ne 0) { throw 'Could not install JavaScript dependencies.' }
@@ -17,7 +17,7 @@ if (-not $isRunning) {
     try { Invoke-RestMethod 'http://127.0.0.1:3000/api/stats' -TimeoutSec 2 | Out-Null; $isRunning = $true; break } catch { Start-Sleep -Milliseconds 500 }
   }
 }
-if (-not $isRunning) { throw 'ClipForge could not start. Check data/server-error.log.' }
+if (-not $isRunning) { throw 'Noah could not start. Check data/server-error.log.' }
 if ($AppWindow) {
   $edgePaths = @((Join-Path ${env:ProgramFiles(x86)} 'Microsoft/Edge/Application/msedge.exe'), (Join-Path $env:ProgramFiles 'Microsoft/Edge/Application/msedge.exe'))
   $edge = $edgePaths | Where-Object { Test-Path -LiteralPath $_ } | Select-Object -First 1

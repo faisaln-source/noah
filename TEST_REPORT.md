@@ -1,34 +1,34 @@
-# ClipForge AI test report
+# Noah test report
 
-## ClipForge 1.11.7 - history timestamp validation
+## Noah 1.11.7 - history timestamp validation
 
 Three focused unit tests and two clipping-control browser scenarios passed, together with TypeScript and build checks. Frontend and backend now share history-range validation, explain ordering, duration and snapshot boundaries using HH:MM:SS.mmm, and tolerate sub-millisecond rounding at the end boundary. Start markers constrain stale end markers to the selected duration and available history. Long-form default ranges respect the chosen 20/25/30-minute duration.
 
-## ClipForge 1.11.6 - Show in folder missing-file handling
+## Noah 1.11.6 - Show in folder missing-file handling
 
 The two current library records referenced MP4 files absent from disk. Folder reveal now opens the containing directory and reports the missing file rather than failing with ENOENT. Existing-file and missing-file cases passed the isolated browser test. The native Windows check created a new data File Explorer window; computer-use inspection verified D:/works/vdeomaker/data, and activated the window. This does not restore the missing videos.
 
-## ClipForge 1.11.5 - file information and folder reveal
+## Noah 1.11.5 - file information and folder reveal
 
 TypeScript and build passed. The isolated browser test verified Show info, actual size and metadata, copying the exact path to the clipboard, folder-reveal endpoint path, Close and Escape. Native Explorer opening is bypassed by the test environment; its Windows launch was adjusted to explicitly request a visible window with a quoted path.
 
-## ClipForge 1.11.4 - export size labels
+## Noah 1.11.4 - export size labels
 
 TypeScript and production build passed. The targeted browser test passed actual file-size labels beside editor downloads, exact previews and export cards, checking the metadata size against the generated file on disk and the exact-byte tooltip. No browser runtime errors were recorded.
 
-## ClipForge 1.11.3 - interrupted playback recovery
+## Noah 1.11.3 - interrupted playback recovery
 
 TypeScript and production build passed. Two browser scenarios passed on the final build: real Kick full-history seeking, earlier clipping and return to live; and injected initial connection failures plus an expired playback session, followed by automatic reconnect, actual playback and preserved VOD clip marks. No browser runtime errors were recorded. The exact original screenshot error did not include a diagnostic code, so its specific triggering cause is not established. Recovery now handles fatal media/network errors, expired sessions, stopped capture processes and stalls, with fresh provider metadata and a bounded retry limit.
 
-## ClipForge 1.11.2 - empty Trash
+## Noah 1.11.2 - empty Trash
 
 TypeScript and build passed. The isolated browser scenario passed missing-confirmation rejection, cancelling the dialog, permanent deletion of the confirmed items, preserving a newly trashed item added during confirmation, keeping original input files byte-identical, and disabling the button when Trash is empty. No runtime errors were recorded. No real user Trash items were deleted.
 
-## ClipForge 1.11.1 - bulk deletion
+## Noah 1.11.1 - bulk deletion
 
 The isolated Playwright scenario passed Select all, Clear selection, single confirmation, cancellation without changes, partial deletion with saved-project protection and an explicit skipped-file message, byte-identical restore, and deleting two exports together while keeping their source. No browser runtime errors were recorded. The real user library was not deleted during testing.
 
-## ClipForge 1.11.0 - streamer voice reduction
+## Noah 1.11.0 - streamer voice reduction
 
 A real ONNX UVR model was downloaded, checksum-verified and exercised locally.
 On the public speech fixture, full-strength reduction lowered RMS speech level by
@@ -44,7 +44,7 @@ sample-identical lossless game audio. Video packet hashes matched across the two
 exports. Listening samples stayed out of the normal media library. No browser
 runtime errors were recorded.
 
-## ClipForge 1.10.0 ? provider history before joining
+## Noah 1.10.0 ? provider history before joining
 
 The current Kick live link exposed a matching ongoing replay with several hours
 of history. A real online Playwright run passed: full replay loaded, seek to
@@ -67,7 +67,7 @@ Full-start access depends on provider DVR/replay availability. Actual full-histo
 provider testing covers Kick; other HLS provider windows are not universally
 certified. This feature does not reconstruct segments a platform no longer serves.
 
-## ClipForge 1.9.1 ? edited download audio
+## Noah 1.9.1 ? edited download audio
 
 Recent user exports contained audible FLAC audio (measured means -17.6/-20.7 dB),
 but FLAC was their only/default MP4 audio stream. The fix adds a default 320 kbps
@@ -83,7 +83,7 @@ video packet hash and lossless audio packet hash exactly. Originals were retaine
 This validates Chromium and the MP4 stream structure; every Windows player was not
 tested individually.
 
-## ClipForge 1.9.0 ? Snap-Ninja feature integration
+## Noah 1.9.0 ? Snap-Ninja feature integration
 
 Validated on this Windows workspace on 18 November 2026:
 
@@ -127,7 +127,7 @@ for implementation differences and setup requirements.
 
 Verified on 18 November 2026 using Playwright Chromium on Windows and Node.js 22.17.0.
 
-ClipForge 1.8.0 passed **23 of 23 local browser scenarios**, plus a final legacy-project migration check (1 of 1), with no skipped cases or recorded JavaScript runtime errors, The full backend suite passed **5 of 5 test groups**, including the new word-timing and neon animation checks. TypeScript checking and the production build passed. The current HTML report and scenario summary show the final targeted legacy-project check. The full 23-case summary and 57-second MP4 evidence are preserved in `verification/editor-regression/`.
+Noah 1.8.0 passed **23 of 23 local browser scenarios**, plus a final legacy-project migration check (1 of 1), with no skipped cases or recorded JavaScript runtime errors, The full backend suite passed **5 of 5 test groups**, including the new word-timing and neon animation checks. TypeScript checking and the production build passed. The current HTML report and scenario summary show the final targeted legacy-project check. The full 23-case summary and 57-second MP4 evidence are preserved in `verification/editor-regression/`.
 
 The editing scenario verified immediate paused-frame color changes, zoom/shake controls, visible text and watermark updates, playback speed, canvas ratio, speech-based automatic title/caption generation, editable generated SRT, manual changes after automatic editing, selected-scene rendered preview playback, and automatic rendered-preview refresh. Preview files stayed out of the media library. A duplicate fixture name caused an earlier test-selector failure; the editing test now uses its own uniquely named fixture.
 

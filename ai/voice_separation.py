@@ -1,7 +1,7 @@
 """Bounded-memory NumPy STFT inference for the UVR MDX-NET Main vocal model.
 
 Model credit: Ultimate Vocal Remover developers Anjok07 and aufr33 (MIT).
-The inference code here is ClipForge's implementation; no PyTorch is required.
+The inference code here is Noah's implementation; no PyTorch is required.
 """
 from pathlib import Path
 import hashlib

@@ -32,7 +32,7 @@ export default function FileActions({ item }: { item: Media }) {
   async function saveAs() {
     setMessage('');
     const extension = item.file?.match(/\.[a-z0-9]{1,8}$/i)?.[0] || (item.kind === 'audio' ? '.m4a' : '.mp4');
-    let name = item.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, '_').slice(0, 120).replace(/[.\s]+$/, '') || 'ClipForge video';
+    let name = item.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, '_').slice(0, 120).replace(/[.\s]+$/, '') || 'Noah video';
     if (/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(name)) name = `_${name}`;
     const filename = name.toLowerCase().endsWith(extension.toLowerCase()) ? name : name + extension;
     const picker = (window as any).showSaveFilePicker;

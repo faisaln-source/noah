@@ -51,7 +51,7 @@ files.post('/files/:id/reveal', async (req, res) => {
   if (process.env.CLIPFORGE_DISABLE_NATIVE_UI === '1') return res.json({ path: file, folder, missing, launched: false, testMode: true });
   if(process.platform==='win32'){
     // Pass paths as data, and explicitly launch the interactive Explorer window
-    // visibly even though the ClipForge server itself runs hidden.
+    // visibly even though the Noah server itself runs hidden.
     const script=`$ErrorActionPreference="Stop"; $target=[Console]::In.ReadToEnd() | ConvertFrom-Json; $arguments=if($target.missing){'/n,"' + $target.folder + '"'}else{'/n,/select,"' + $target.path + '"'}; Start-Process -FilePath explorer.exe -WindowStyle Normal -ArgumentList $arguments`;
     await new Promise((resolve,reject)=>{const child=spawn('powershell.exe',['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{windowsHide:true,stdio:['pipe','ignore','pipe']});let error='';child.stderr.on('data',chunk=>error+=chunk);child.once('error',reject);child.once('close',code=>code===0?resolve():reject(new Error(error || 'Explorer could not launch')));child.stdin.end(JSON.stringify({path:file,folder,missing}));});
   }else{

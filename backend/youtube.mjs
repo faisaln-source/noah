@@ -48,7 +48,7 @@ youtube.get('/youtube/callback',async(req,res)=>{
   const channel=await channelInfo(tokens.access_token);
   if(!tokens.refresh_token)throw new Error('Google did not return offline access. Reconnect and grant consent.');
   await saveAccount({client_id:current.client_id,client_secret:current.client_secret,...tokens,channel,expiresAt:Date.now()+tokens.expires_in*1000});
-  res.type('html').send('<!doctype html><title>YouTube connected</title><h1>YouTube connected</h1><p>Return to ClipForge. No video was uploaded.</p>');
+  res.type('html').send('<!doctype html><title>YouTube connected</title><h1>YouTube connected</h1><p>Return to Noah. No video was uploaded.</p>');
 });
 youtube.delete('/youtube/account',async(_req,res)=>{account=null;pending=null;await fs.unlink(vault).catch(()=>{});res.json({ok:true});});
 export function publishMetadata(body){

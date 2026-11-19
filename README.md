@@ -1,4 +1,4 @@
-﻿# ClipForge AI
+# Noah
 
 Local video clipping and editing for gaming recordings and live streams. Import footage, review suggested highlights, edit a timeline, generate animated speech captions, and export finished videos without a paid AI API.
 
@@ -37,7 +37,7 @@ Open **http://127.0.0.1:3000**. Stop the terminal server with **Ctrl+C**.
 
 The setup scripts download FFmpeg, FFprobe, yt-dlp, a project-local Python 3.12 runtime, locked Python dependencies, and the Whisper base model. These downloads are excluded from Git.
 
-After setup, double-click **Start ClipForge.cmd** to build, start, and open the app. **ClipForge Desktop.cmd** opens an app-style Edge window when Edge is installed. Launcher logs are saved to `data/server.log` and `data/server-error.log`.
+After setup, double-click **Start Noah.cmd** to build, start, and open the app. **Noah Desktop.cmd** opens an app-style Edge window when Edge is installed. Launcher logs are saved to `data/server.log` and `data/server-error.log`.
 
 ### First video
 
@@ -79,7 +79,7 @@ Before browser tests, run `npx.cmd playwright install chromium`. Set `$env:E2E_O
 ```powershell
 $env:PORT = '3000'
 $env:HOST = '127.0.0.1'
-$env:DATA_DIR = 'D:\ClipForgeData'
+$env:DATA_DIR = 'D:\NoahData'
 npm.cmd start
 ```
 
@@ -152,6 +152,10 @@ data/                   Local library, database, models, exports (not committed)
 
 Highlight ranking measures audiovisual activity; it does not guarantee recognition of specific game events. Review generated clips, transcripts, framing, and audio before use. Source permissions, platform restrictions, and available DVR history determine what can be imported.
 
-Use media you own or have permission to reuse. Third-party components retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), the [Snap-Ninja license](ai/snap_ninja/LICENSE), the [YuNet notice](ai/snap_ninja/models/LICENSE.YuNet), and the [Anton font license](public/fonts/Anton-OFL.txt). No project-wide license has been selected for the original ClipForge source.
+Use media you own or have permission to reuse. Third-party components retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), the [Snap-Ninja license](ai/snap_ninja/LICENSE), the [YuNet notice](ai/snap_ninja/models/LICENSE.YuNet), and the [Anton font license](public/fonts/Anton-OFL.txt). No project-wide license has been selected for the original Noah source.
 
 Additional documentation: [user guide](docs/USER_GUIDE.md), [feature comparison](FEATURE_COMPARISON.md), and [test report](TEST_REPORT.md).
+
+### Compatibility after renaming
+
+Noah keeps the existing `clipforge.sqlite` database, browser storage keys, `clipforge-data` Docker volume, and `CLIPFORGE_*` environment names so existing libraries, drafts, and configuration continue to work. These internal names are retained for compatibility.

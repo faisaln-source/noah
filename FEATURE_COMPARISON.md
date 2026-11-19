@@ -1,11 +1,11 @@
-# Snap-Ninja comparison and ClipForge 1.9 additions
+# Snap-Ninja comparison and Noah 1.9 additions
 
 Reviewed the implementation of [Snap-Ninja](https://github.com/Abhinav-murugan1/Snap-Ninja)
 at commit `beb5433201f70702604f82572a445142d3bceea9`, rather than treating every README
 claim as a verified released feature. Its MIT notice and the bundled YuNet detector
 notice are preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-| Reference capability | ClipForge result |
+| Reference capability | Noah result |
 | --- | --- |
 | URL/file imports, YouTube/Twitch live playback, manual timestamps and DVR clipping | Already present. Kept original streams separately from the viewing proxy. |
 | Reviewed highlights, previews for each clip, editor, subtitles, MP4 exports | Already present. Kept the complete timeline and native/lossless export defaults. |
@@ -24,13 +24,13 @@ notice are preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 | Continuous live parts (`clipper/live.py`) | Added 2–60-minute parts, 90-second overlap, analysis while capture continues, and a 0.5–24-hour automation limit. Keep the streamed player open; leaving it stops capture. |
 | Long-audio memory handling (`clipper/transcribe.py`) | Added disk-backed 16 kHz audio and roughly ten-minute chunks cut near quiet boundaries, retaining absolute word offsets. Added tiny/base/small/medium/large-v3/turbo model selection and CPU/CUDA preference. |
 | YouTube publishing (`clipper/youtube.py`) | Added Desktop OAuth with PKCE/state, Windows DPAPI account storage, visible channel, export preview, editable metadata/privacy/audience, explicit per-upload authorization and resumable byte-preserving transfer. Connecting does not upload. |
-| Desktop and CLI entry points | Added `ClipForge Desktop.cmd` using an Edge app window (browser fallback) and `cli.mjs` for local file/folder import or reviewed URL clipping. Unsaved editor timeline drafts now survive reload. |
-| Windows installer tooling | The reference contains installer/build scaffolding, but its README says a verified installer is not published. ClipForge retains source-based setup and launchers; this update does not claim to deliver a signed standalone installer. |
+| Desktop and CLI entry points | Added `Noah Desktop.cmd` using an Edge app window (browser fallback) and `cli.mjs` for local file/folder import or reviewed URL clipping. Unsaved editor timeline drafts now survive reload. |
+| Windows installer tooling | The reference contains installer/build scaffolding, but its README says a verified installer is not published. Noah retains source-based setup and launchers; this update does not claim to deliver a signed standalone installer. |
 
 ## Deliberate differences and validation limits
 
 The upstream 1080p caps, fixed frame-rate/lossy render defaults and 180-second
-portrait limit were not copied. ClipForge keeps the user's two-minute portrait
+portrait limit were not copied. Noah keeps the user's two-minute portrait
 limit, original FPS/source copy option, and lossless edited defaults. Reframing
 necessarily changes composition; lossless encoding prevents additional codec loss
 but cannot preserve pixels removed by a crop or changed by effects.

@@ -1,10 +1,10 @@
-﻿# ClipForge AI
+# Noah
 
 A local gaming video clipping and editing application. React + TypeScript + Vite frontend, Express backend, Python AI workers, FFmpeg rendering, and Faster-Whisper speech recognition. No paid AI API is required.
 
 ## Open the software
 
-Double-click **Start ClipForge.cmd** in this folder. It builds the frontend when starting the server and opens http://127.0.0.1:3000. Logs are in `data/server.log` and `data/server-error.log`.
+Double-click **Start Noah.cmd** in this folder. It builds the frontend when starting the server and opens http://127.0.0.1:3000. Logs are in `data/server.log` and `data/server-error.log`.
 
 For terminal use, run `npm.cmd run build` followed by `npm.cmd start`. Node.js 22.17 or newer is required. A fresh clone requires the tools and AI setup described below.
 
@@ -28,7 +28,7 @@ continuous overlapping parts. Keep the player open; its navigation/close action
 stops the session. Chat-based timestamps depend on stream/chat delay and need
 review. The source stream is copied separately from the viewing proxy.
 
-For an app-style window, launch **ClipForge Desktop.cmd** (Microsoft Edge required;
+For an app-style window, launch **Noah Desktop.cmd** (Microsoft Edge required;
 otherwise it opens the browser). Unsaved editor drafts survive browser reload.
 The original launcher continues to work. CLI usage: `node cli.mjs`.
 
@@ -62,7 +62,7 @@ OAuth/upload contracts are covered with mocked Google responses.
 2. Run `npm.cmd ci` from this folder.
 3. Run `powershell -ExecutionPolicy Bypass -File setup-tools.ps1` to download FFmpeg, FFprobe, and yt-dlp.
 4. Run `powershell -ExecutionPolicy Bypass -File setup-ai.ps1` to install a project-local Python 3.12 runtime, locked AI dependencies, and the Whisper base model.
-5. Double-click `Start ClipForge.cmd`.
+5. Double-click `Start Noah.cmd`.
 
 Initial installation and uncached model downloads require internet access. Cached speech models, uploaded media, analysis, and exports can run locally. Fonts use system fallbacks when Google Fonts is unavailable. Update yt-dlp through its official release when platform extractors change.
 

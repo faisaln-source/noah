@@ -137,7 +137,7 @@ app.post('/api/batch-captions', (req, res) => {
   res.status(202).json(enqueue('batch-captions', {sourceIds:[...new Set(ids)]}, 'Batch caption finished clips'));
 });
 app.get('/api/library', (_req, res) => res.json(all('media').filter(item => item.kind !== 'preview' && !item.voiceSample)));
-app.get('/api/version', (_req, res) => res.json({ name: 'ClipForge AI', version: '1.11.7', linkWorkflow: true, momentReview: true, immediatePlayer: true, shortRatios: ['9:16', '3:4'] }));
+app.get('/api/version', (_req, res) => res.json({ name: 'Noah', version: '1.11.7', linkWorkflow: true, momentReview: true, immediatePlayer: true, shortRatios: ['9:16', '3:4'] }));
 app.get('/api/jobs', (_req, res) => res.json(all('jobs').slice(0, 100)));
 app.get('/api/jobs/:id', (req, res) => res.json(required('jobs', req.params.id)));
 app.get('/api/presets', (_req, res) => res.json(PRESETS));
@@ -272,6 +272,6 @@ app.get('/', (_req, res) => res.sendFile(path.join(ROOT, 'dist/index.html')));
 app.use((error, _req, res, _next) => { if (!res.headersSent) res.status(400).json({ error: error.message }); });
 const port = Number(process.env.PORT || 3000);
 app.listen(port, process.env.HOST || '127.0.0.1', () => {
-  console.log(`ClipForge AI is ready at http://127.0.0.1:${port}`);
+  console.log(`Noah is ready at http://127.0.0.1:${port}`);
   recoverJobs();
 });

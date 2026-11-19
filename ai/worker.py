@@ -191,7 +191,7 @@ if __name__ == "__main__":
 else:
     from fastapi import FastAPI, HTTPException
     from pydantic import BaseModel
-    app = FastAPI(title="ClipForge local AI worker")
+    app = FastAPI(title="Noah local AI worker")
 
     class AnalysisRequest(BaseModel):
         operation: str
